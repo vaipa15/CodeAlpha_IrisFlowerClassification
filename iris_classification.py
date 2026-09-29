@@ -8,7 +8,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
-
 iris = load_iris()
 
 X = pd.DataFrame(iris.data, columns=iris.feature_names)
