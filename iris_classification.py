@@ -27,8 +27,6 @@ print(df.shape)
 
 print("\nMissing Values:")
 print(df.isnull().sum())
-
-
 sns.pairplot(df, hue="Species")
 plt.suptitle("Iris Flower Dataset Visualization", y=1.02)
 plt.show()
