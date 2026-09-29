@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
-# 1. Load Dataset
+
 iris = load_iris()
 
 X = pd.DataFrame(iris.data, columns=iris.feature_names)
@@ -29,12 +29,11 @@ print(df.shape)
 print("\nMissing Values:")
 print(df.isnull().sum())
 
-# 2. Data Visualization
+
 sns.pairplot(df, hue="Species")
 plt.suptitle("Iris Flower Dataset Visualization", y=1.02)
 plt.show()
 
-# 3. Split Dataset
 X_train, X_test, y_train, y_test = train_test_split(
     X, y,
     test_size=0.2,
@@ -42,20 +41,20 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-# 4. Feature Scaling
+
 scaler = StandardScaler()
 
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# 5. Train Machine Learning Model
+
 model = KNeighborsClassifier(n_neighbors=5)
 model.fit(X_train, y_train)
 
-# 6. Make Predictions
+
 y_pred = model.predict(X_test)
 
-# 7. Evaluate Model
+
 accuracy = accuracy_score(y_test, y_pred)
 
 print("\nModel Accuracy:", round(accuracy * 100, 2), "%")
@@ -67,7 +66,7 @@ print(classification_report(
     target_names=iris.target_names
 ))
 
-# 8. Confusion Matrix
+
 cm = confusion_matrix(y_test, y_pred)
 
 plt.figure(figsize=(7, 5))
